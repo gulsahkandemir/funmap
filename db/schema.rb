@@ -55,10 +55,4 @@ ActiveRecord::Schema.define(version: 20131106044459) do
 
   add_index "feeds", ["actor_id"], name: "index_feeds_on_actor_id", using: :btree
 
-  create_table "testfeeds", force: true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end
