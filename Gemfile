@@ -27,6 +27,11 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'underscore-rails'
+
+# Integration of Google Maps. Read more: https://github.com/apneadiving/Google-Maps-for-Rails
+gem 'gmaps4rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

@@ -1,9 +1,12 @@
 Funmap::Application.routes.draw do
 
+root :to => 'events#index'
+
 namespace :api do
   resources :feeds, :defaults => { :format => 'json' }
-  resources :testfeeds, :defaults => { :format => 'json' }
 end  
+
+resources :events
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
