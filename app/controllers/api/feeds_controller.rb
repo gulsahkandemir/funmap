@@ -64,12 +64,7 @@ class Api::FeedsController < ApplicationController
 	end
 
 	def index
-		feeds = Feed.all
-		respond_to do |format|
-	    	format.html
-	    	format.xml { render xml: feeds }
-	    	format.json { render json: feeds }
-	  	end
+		render :text => params["hub.challenge"]
 	end
 
 end
