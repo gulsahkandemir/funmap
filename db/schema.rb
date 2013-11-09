@@ -42,12 +42,14 @@ ActiveRecord::Schema.define(version: 20131106044459) do
 
   create_table "feeds", force: true do |t|
     t.string   "id_feed"
-    t.float    "published"
-    t.float    "updated"
     t.string   "title"
     t.text     "summary"
     t.text     "content"
     t.string   "permalink_url"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.date     "date"
     t.integer  "actor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
