@@ -1,9 +1,29 @@
+require 'open-uri'
 class Api::FeedsController < ApplicationController
 	#include ActionView::Helpers
 	skip_before_action :verify_authenticity_token
 	def create
 		items = params[:items]
 		items.each_with_index do |item,i|
+
+
+			# Start crawling through website of the feed and get the address
+			page = Nokogiri::HTML(open(item[:id]))
+
+			text_stats = page.css('#stats').text
+			map_data_regex = /<!\[CDATA\[\s*\*\/var\s+mapdata\s*=(.*?\})\s*\;/
+			map_data_json = text_stats.match(map_data_regex)[1]
+
+			map_data = ActiveSupport::JSON.decode(map_data_json)
+			location_data = map_data["pois"].first
+			point = location_data["point"]
+			latitude = point["lat"]
+			longitude = point["lng"]
+			corrected_address = location_data["correctedAddress"]
+
+			# Parse date of the event from item[:title]
+			date = Date.parse(item[:title])
+
 			actor = Actor.new(
 				:display_name => item[:actor][:displayName], 
 				:permalink_url => item[:actor][:permalinkUrl],
@@ -12,14 +32,16 @@ class Api::FeedsController < ApplicationController
 			actor.save
 			
 			feed = Feed.new(
-				:id_feed => item[:id], 
-				:published => item[:published], 
-				:updated => item[:updated], 
+				:id_feed => item[:id],  
 				:title => item[:title], 
 				:summary => item[:summary], 
 				:content => item[:content], 
 				:permalink_url => item[:permalinkUrl], 
-				:actor => actor 
+				:latitude => latitude,
+				:longitude => longitude,
+				:address => corrected_address,
+				:date => date,
+				:actor => actor
 				)
 			feed.save
 
