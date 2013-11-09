@@ -1,6 +1,5 @@
 require 'open-uri'
-class Api::FeedsController < ApplicationController
-	#include ActionView::Helpers
+class Api::Subscriptions::SfFunCheapController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	def create
 		items = params[:items]

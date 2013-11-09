@@ -1,8 +1,9 @@
 Funmap::Application.routes.draw do
 
 namespace :api do
-  resources :feeds, :defaults => { :format => 'json' }
-  resources :testfeeds, :defaults => { :format => 'json' }
+  namespace :subscriptions do
+    resources :sf_fun_cheap, :defaults => { :format => 'json' }
+  end
 end  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
