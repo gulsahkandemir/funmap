@@ -2,7 +2,9 @@ require 'open-uri'
 class Api::Subscriptions::SfFunCheapController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	def create
+		logger.info "=========START=========="
 		logger.info request.env
+		logger.info "==========END==========="
 
 		items = params[:items]
 		items.each_with_index do |item,i|
