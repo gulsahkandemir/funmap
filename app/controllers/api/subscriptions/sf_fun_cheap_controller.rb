@@ -23,26 +23,34 @@ class Api::Subscriptions::SfFunCheapController < ApplicationController
 			# Parse date of the event from item[:title]
 			date = Date.parse(item[:title])
 
-			actor = Actor.new(
-				:display_name => item[:actor][:displayName], 
-				:permalink_url => item[:actor][:permalinkUrl],
-				:id_actor => item[:actor][:id]
-				) 
-			actor.save
-			
-			feed = Feed.new(
-				:id_feed => item[:id],  
-				:title => item[:title], 
-				:summary => item[:summary], 
-				:content => item[:content], 
-				:permalink_url => item[:permalinkUrl], 
-				:latitude => latitude,
-				:longitude => longitude,
-				:address => corrected_address,
-				:date => date,
-				:actor => actor
-				)
-			feed.save
+			# Check for a duplicate actor first
+			actor = Actor.find_by(id_actor: item[:actor][:id])
+			if actor.blank?
+				actor = Actor.new(
+					:display_name => item[:actor][:displayName], 
+					:permalink_url => item[:actor][:permalinkUrl],
+					:id_actor => item[:actor][:id]
+					) 
+				actor.save
+			end
+
+			# Check for a duplicate feed first
+			feed = Feed.find_by(id_feed: item[:id])
+			if feed.blank?
+				feed = Feed.new(
+					:id_feed => item[:id],  
+					:title => item[:title], 
+					:summary => item[:summary], 
+					:content => item[:content], 
+					:permalink_url => item[:permalinkUrl], 
+					:latitude => latitude,
+					:longitude => longitude,
+					:address => corrected_address,
+					:date => date,
+					:actor => actor
+					)
+				feed.save
+			end
 
 			categories = item[:categories]
 			categories.each do |cat|
@@ -51,7 +59,7 @@ class Api::Subscriptions::SfFunCheapController < ApplicationController
 					category = Category.new(:title => cat)
 					category.save
 				end
-				feed.categories << category
+				feed.categories << category unless feed.categories.include?(category)
 			end
 
 			respond_to do |format|

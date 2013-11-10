@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131106044459) do
+ActiveRecord::Schema.define(version: 20131110093407) do
 
   create_table "actors", force: true do |t|
     t.string   "display_name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20131106044459) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "actors", ["id_actor"], name: "index_actors_on_id_actor", unique: true, using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -56,5 +58,6 @@ ActiveRecord::Schema.define(version: 20131106044459) do
   end
 
   add_index "feeds", ["actor_id"], name: "index_feeds_on_actor_id", using: :btree
+  add_index "feeds", ["id_feed"], name: "index_feeds_on_id_feed", unique: true, using: :btree
 
 end
