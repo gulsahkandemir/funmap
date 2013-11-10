@@ -2,9 +2,10 @@ require 'open-uri'
 class Api::Subscriptions::SfFunCheapController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	def create
+		logger.info request.env
+
 		items = params[:items]
 		items.each_with_index do |item,i|
-
 
 			# Start crawling through website of the feed and get the address
 			page = Nokogiri::HTML(open(item[:id]))
@@ -12,7 +13,7 @@ class Api::Subscriptions::SfFunCheapController < ApplicationController
 			text_stats = page.css('#stats').text
 			map_data_regex = /<!\[CDATA\[\s*\*\/var\s+mapdata\s*=(.*?\})\s*\;/
 			map_data_regex_result = text_stats.match(map_data_regex)
-			#if text_stats includes a CDATA block, parse location data
+			#if text_stats includes a CDATA block, parse location
 			if !map_data_regex_result.nil?
 				map_data_json = map_data_regex_result[1]
 				map_data = ActiveSupport::JSON.decode(map_data_json)
