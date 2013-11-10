@@ -11,14 +11,18 @@ class Api::Subscriptions::SfFunCheapController < ApplicationController
 
 			text_stats = page.css('#stats').text
 			map_data_regex = /<!\[CDATA\[\s*\*\/var\s+mapdata\s*=(.*?\})\s*\;/
-			map_data_json = text_stats.match(map_data_regex)[1]
+			map_data_regex_result = text_stats.match(map_data_regex)
+			#if text_stats includes a CDATA block, parse location data
+			if !map_data_regex_result.nil?
+				map_data_json = map_data_regex_result[1]
+				map_data = ActiveSupport::JSON.decode(map_data_json)
+				location_data = map_data["pois"].first
+				point = location_data["point"]
+				latitude = point["lat"]
+				longitude = point["lng"]
+				corrected_address = location_data["correctedAddress"]
+			end
 
-			map_data = ActiveSupport::JSON.decode(map_data_json)
-			location_data = map_data["pois"].first
-			point = location_data["point"]
-			latitude = point["lat"]
-			longitude = point["lng"]
-			corrected_address = location_data["correctedAddress"]
 
 			# Parse date of the event from item[:title]
 			date = Date.parse(item[:title])
