@@ -26,9 +26,15 @@ class Api::Subscriptions::SfFunCheapController < ApplicationController
 				corrected_address = location_data["correctedAddress"]
 			end
 
+			# Get feed item's image url
+			img_entries = page.css(".entry img")
+			img_src = ""
+			if img_entries.count > 0
+				img_src = img_entries[0].attr("src")	
+			end
 
 			# Parse date of the event from item[:title]
-			date = Date.parse(item[:title])
+			date = Date.strptime(item[:title], "%m/%d/%y")
 
 			# Check for a duplicate actor first
 			actor = Actor.find_by(id_actor: item[:actor][:id])
@@ -54,7 +60,8 @@ class Api::Subscriptions::SfFunCheapController < ApplicationController
 					:longitude => longitude,
 					:address => corrected_address,
 					:date => date,
-					:actor => actor
+					:actor => actor,
+					:img_src => img_src
 					)
 				feed.save
 			end
@@ -69,12 +76,13 @@ class Api::Subscriptions::SfFunCheapController < ApplicationController
 				feed.categories << category unless feed.categories.include?(category)
 			end
 
-			respond_to do |format|
-			    	format.html
-			    	format.xml { render xml: feed }
-			    	format.json { render json: feed }
-			end		
 		end
+
+		respond_to do |format|
+			format.html
+			format.xml { render xml:  Feed.last }
+			format.json { render json: Feed.last }
+		end		
 	end
 
 	def index

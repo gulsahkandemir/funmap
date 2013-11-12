@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110093407) do
+ActiveRecord::Schema.define(version: 20131112211058) do
 
   create_table "actors", force: true do |t|
     t.string   "display_name"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20131110093407) do
     t.integer  "actor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "img_src"
   end
 
   add_index "feeds", ["actor_id"], name: "index_feeds_on_actor_id", using: :btree
