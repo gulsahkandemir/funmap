@@ -6,7 +6,7 @@ $.widget('fm.fm_map', {
     _create: function() {
     	$.extend(this.options, this.element.data());
 
-    	var mapId = "map";
+    	var mapId = "map" + Math.floor(Math.random()*11);
 	    this.element.attr("id", mapId);
 
 	    var gmaps = Gmaps.build("Google");
