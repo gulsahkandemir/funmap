@@ -21,6 +21,26 @@ html, body {
 	left: 0px;
 	width: 100%; 
 	height: 100%;
+	.info-popover {
+		width: 300px;
+		padding: 7px;
+		.popover-title {
+			border-radius: 0px;
+		}
+		.popover-content {
+			padding: 0px;
+			hr {
+				margin-top: 0px;
+				margin-bottom: 5px;
+			}
+		}
+		.event-img { 
+			width: 286px;
+			height: 143px;
+			background-size: cover !important;
+			margin-bottom: 9px;
+		}
+	}
 }
 
 .fm-filterbox {
@@ -28,9 +48,25 @@ html, body {
 	bottom: 0px; 
 	left: 65px; 
 	width: 485px;
+	.filter-title {
+		margin-left: 5px;
+	}
 	.js-more {
 		position: absolute;
 		top: 0px;
 		right: 20px;
+	}
+	.js-more-categories {
+		hr {
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+		label:nth-child(3n+2) {
+			margin-left: 0px;
+		}
+	}
+	hr {
+		margin-top: 0px;
+		margin-bottom: 15px;
 	}
 }

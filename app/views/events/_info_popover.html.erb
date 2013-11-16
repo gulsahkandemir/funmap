@@ -1,0 +1,16 @@
+<div class="info-popover small">
+	<div class="popover-title">
+		<a href="<%= feed.id_feed %>" target="_blank"><%= feed.title %></a>
+	</div>
+	<div class="popover-content">
+		<% if !feed.img_src.nil? %>
+			<div style="background: url(<%= feed.img_src %>) 50% 50% no-repeat;" 
+				 class="event-img">
+			 </div>
+		<% end %>
+		<% if !feed.summary.nil? %>
+			<hr>
+			<p><%= feed.summary[0..250] %>...</p>
+		<% end %>
+	</div>
+</div>
