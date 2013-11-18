@@ -7,8 +7,12 @@ namespace :api do
     resources :sf_fun_cheap, :defaults => { :format => 'json' }
   end
 end 
-
-resources :events
+ 
+resources :events do
+  collection do
+    get 'search', :defaults => {:format => 'json'}
+  end
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
