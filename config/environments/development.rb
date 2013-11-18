@@ -26,4 +26,7 @@ Funmap::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # Google maps api key
+  config.maps_key = "AIzaSyAVdLyIXC4X31tjWLdcQHu5HvgWIl0BowM"
 end

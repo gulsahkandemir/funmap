@@ -77,4 +77,7 @@ Funmap::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Google maps api key
+  config.maps_key = "AIzaSyAVdLyIXC4X31tjWLdcQHu5HvgWIl0BowM"
 end

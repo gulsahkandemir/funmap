@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require turbolinks
-//= require_tree .
+//= require underscore
+//= require gmaps/google
+//= require twitter/bootstrap
+
+//= require fm.initialize
+//= require_self
+'use strict';
+$(document).ready($(document).fm_initialize);

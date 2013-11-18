@@ -21,6 +21,7 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -30,6 +31,13 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'nokogiri'
 
+gem 'underscore-rails'
+
+# Integration of Google Maps. Read more: https://github.com/apneadiving/Google-Maps-for-Rails
+gem 'gmaps4rails'
+
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
