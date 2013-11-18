@@ -47,22 +47,36 @@ html, body {
 	position: absolute; 
 	bottom: 0px; 
 	left: 65px; 
-	width: 485px;
+	width: 420px;
 	.filter-title {
 		margin-left: 5px;
 	}
-	.js-more {
+	.form-group {
+		position: relative;
+	}
+	.collapse-link:hover {
+		text-decoration: none;
+	}
+	.checkbox-inline {
+		height: 41px;
+		width: 100px;
+		margin-left: 5px;
+		&:nth-child(3n+2),
+		&:first-child {
+			margin-left: 0px;
+		}
+	}
+	.js-more-btn {
 		position: absolute;
-		top: 0px;
-		right: 20px;
+		left: 50%;
+		margin-left: -25px;
+		bottom: -30px;
+		background: white;
 	}
 	.js-more-categories {
 		hr {
 			margin-top: 5px;
 			margin-bottom: 5px;
-		}
-		label:nth-child(3n+2) {
-			margin-left: 0px;
 		}
 	}
 	hr {

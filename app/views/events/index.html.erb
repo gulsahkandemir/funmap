@@ -5,8 +5,10 @@
 
 <div class="fm-filterbox panel panel-default small">
     <div class="panel-heading">
-        <a data-toggle="collapse" href="#filterbox-content"><i class="js-collapse-handler glyphicon glyphicon-chevron-down"></i></a>
-        <b class="filter-title">Find an event to attend.</b>
+        <a data-toggle="collapse" href="#filterbox-content" class="collapse-link">
+          <i class="js-collapse-handler glyphicon glyphicon-chevron-down"></i>
+          <b class="filter-title">Find an event to attend.</b>
+        </a>
     </div>
 
     <div id="filterbox-content" class="panel-collapse in">
@@ -33,7 +35,7 @@
 
               <div class="clearfix">
                 <% for category in @top_categories[0..2] %>
-                  <label class="checkbox-inline col-xs-3">
+                  <label class="checkbox-inline">
                     <input name="categories[]" value="<%=category[:id]%>" type="checkbox"/> 
                     <%=category[:title]%>
                   </label>
@@ -43,21 +45,22 @@
               <div class="js-more-categories clearfix" style="display: none">
                 <hr>
                 <% for category in @top_categories[3..@top_categories.length] %>
-                  <label class="checkbox-inline col-xs-3">
+                  <label class="checkbox-inline">
                     <input name="categories[]" value="<%=category[:id]%>" type="checkbox"> <%=category[:title]%>
                   </label>
                 <% end %>
               </div>
 
-              <button type="button" class="btn btn-sm btn-default js-more">more</button>
-
             </div>
+
+            <button type="button" class="btn btn-sm btn-link btn-default js-more-btn">more</button>
+
           </div>
 
           <hr>
           <div class="form-group">
             <div class="col-xs-offset-2 col-xs-10">
-              <button type="submit" class="btn btn-sm btn-primary js-search">Search</button>
+              <button type="submit" class="btn btn-sm btn-primary js-search-btn">Search</button>
             </div>
           </div>
 

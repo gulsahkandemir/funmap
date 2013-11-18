@@ -7,6 +7,7 @@ $.widget('fm.fm_filterbox', {
         panelCollapse: null,
         moreCategoriesDiv: null,
         moreButton: null,
+        searchButton: null,
         searchForm: null,
     },
     _create: function() {
@@ -24,7 +25,8 @@ $.widget('fm.fm_filterbox', {
         this.eles.collapseHandler = this.element.find(".js-collapse-handler");
         this.eles.panelCollapse = this.element.find(".panel-collapse");
         this.eles.moreCategoriesDiv = this.element.find(".js-more-categories");
-        this.eles.moreButton = this.element.find(".js-more");
+        this.eles.moreButton = this.element.find(".js-more-btn");
+        this.eles.searchButton = this.element.find(".js-search-btn");
         this.eles.searchForm = this.element.find(".js-search-form");
 
     },
@@ -50,6 +52,8 @@ $.widget('fm.fm_filterbox', {
     },
     _onSearchFormSubmit: function(event) {
         event.preventDefault();
+        
+        this.eles.searchButton.blur();
 
         $.ajax({
           type: "GET",
