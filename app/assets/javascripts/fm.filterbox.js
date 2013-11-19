@@ -18,6 +18,25 @@ $.widget('fm.fm_filterbox', {
             .on('show.bs.collapse', $.proxy(this._onShowCollapsable,this));
     	this.eles.moreButton.on("click",$.proxy(this._onToggleMoreCategories,this));
         this.eles.searchForm.on("submit",$.proxy(this._onSearchFormSubmit,this));
+        $('#daterange').daterangepicker(
+              {
+                ranges: {
+                   'Today': [moment(), moment()],
+                   'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+                   'Last 7 Days': [moment().subtract('days', 6), moment()],
+                   'Last 30 Days': [moment().subtract('days', 29), moment()],
+                   'This Month': [moment().startOf('month'), moment().endOf('month')],
+                   'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+                },
+                startDate: moment().subtract('days', 29),
+                endDate: moment()
+              },
+              function(start, end) {
+                console.log("Date time picker");
+                  $('#daterange span').html(start.format('MMMM D, YYYY') + ' - ' 
+                    + end.format('MMMM D, YYYY'));
+              }
+        );
     },
     _destroy: function() {
     },
@@ -52,6 +71,7 @@ $.widget('fm.fm_filterbox', {
     },
     _onSearchFormSubmit: function(event) {
         event.preventDefault();
+        console.log(this.eles.searchForm.serialize());
         
         this.eles.searchButton.blur();
 

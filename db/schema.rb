@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112211058) do
+ActiveRecord::Schema.define(version: 20131119084910) do
 
   create_table "actors", force: true do |t|
     t.string   "display_name"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20131112211058) do
     t.text     "summary"
     t.text     "content"
     t.string   "permalink_url"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.decimal  "latitude",      precision: 15, scale: 12
+    t.decimal  "longitude",     precision: 15, scale: 12
     t.string   "address"
     t.date     "date"
     t.integer  "actor_id"
