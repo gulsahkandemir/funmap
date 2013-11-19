@@ -17,6 +17,8 @@
 //= require underscore
 //= require gmaps/google
 //= require twitter/bootstrap
+//= require moment
+//= require daterangepicker
 
 //= require fm.initialize
 //= require_self

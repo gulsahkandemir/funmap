@@ -19,14 +19,15 @@
               :method => "get", :class =>"form-horizontal js-search-form") do %>
 
           <div class="form-group">
-            <label for="date_range" class="col-xs-2 control-label">Date</label>
-            <div class="col-xs-6 input-group input-group-sm">
-              <span class="input-group-addon">
-                <i class="glyphicon glyphicon-calendar"></i>
-              </span>
-              <input type="text" class="form-control" name="date_range" placeholder="">
-            </div>
-          </div>
+              <label for="date_range" class="col-xs-2 control-label">Date</label>
+              <div class="col-xs-7 input-group input-group-sm">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+                <input type="text" class="form-control js-date-range" name="date_range" placeholder="">
+              </div>
+          </div> 
+
           <hr>
 
           <div class="form-group">
@@ -69,5 +70,3 @@
       </div>
     </div>
 </div>
-
-
