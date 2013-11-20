@@ -21,9 +21,7 @@ $.widget('fm.fm_map', {
         };
 
         this.gmaps.map = new google.maps.Map(this.element[0], mapOptions);
-        this.gmaps.infoWindow = new google.maps.InfoWindow({
-            disableAutoPan: true
-        });
+        this.gmaps.infoWindow = new google.maps.InfoWindow();
         google.maps.event.addListener(this.gmaps.map, "click", $.proxy(function () { 
             this.gmaps.infoWindow.close(); 
         },this)); 
