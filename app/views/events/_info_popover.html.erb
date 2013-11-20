@@ -9,8 +9,7 @@
 			 </div>
 		<% end %>
 		<% if !feed.summary.nil? %>
-			<hr>
-			<p><%= feed.summary[0..250] %>...</p>
+			<p class="description"><%= feed.summary[0..250] %>...</p>
 		<% end %>
 	</div>
 </div>

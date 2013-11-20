@@ -25,6 +25,13 @@ class EventsController < ApplicationController
 			if(selected_categories)
 				feeds = feeds.where("feed_has_categories.category_id" => selected_categories)
 			end
+			if(date_first && date_last)
+				feeds = feeds.where(date: (Date.strptime(date_first,"%m/%d/%Y").strftime("%Y-%m-%d")..Date.strptime(date_last,"%m/%d/%Y").strftime("%Y-%m-%d")))
+			elsif (date_first)
+				feeds = feeds.where(date: Date.strptime(date_first,"%m/%d/%Y").strftime("%Y-%m-%d"))
+			else
+				feeds = feeds.where(['date >= ?', Date.today])
+			end
 		else 
 			feeds = feeds.where(['date >= ?', Date.today])
 		end
@@ -44,12 +51,14 @@ class EventsController < ApplicationController
 		template_string = File.open("app/views/events/_info_popover.html.erb").read
 		template = ERB.new(template_string)
 
-		hash = Gmaps4rails.build_markers(feeds) do |feed,marker|
-			marker.lat feed.latitude.to_f
-			marker.lng feed.longitude.to_f
-			marker.json({:id => feed.id })
-			marker.infowindow template.result(binding)
-		end		
-		return hash
+		markers = Array.new
+		feeds.each do |feed|
+			marker = Hash.new
+			marker["lat"] = feed.latitude.to_f
+			marker["lng"] = feed.longitude.to_f
+			marker["infoWindowContent"] = template.result(binding)
+			markers << marker
+		end
+		return markers
 	end
 end

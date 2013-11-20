@@ -15,7 +15,6 @@
 //= require jquery.ui.all
 //= require turbolinks
 //= require underscore
-//= require gmaps/google
 //= require twitter/bootstrap
 //= require moment
 //= require daterangepicker

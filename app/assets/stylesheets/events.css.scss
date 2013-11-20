@@ -15,6 +15,13 @@ html, body {
 	}
 }
 
+.gm-style-iw {
+	top: 0px !important;
+	left: 0px !important;
+	width: 100% !important;
+	height: 100% !important;
+}
+
 .fm-map {
 	position: fixed; 
 	top: 0px; 
@@ -23,22 +30,24 @@ html, body {
 	height: 100%;
 	.info-popover {
 		width: 300px;
-		padding: 7px;
+		padding: 1px;
 		.popover-title {
 			border-radius: 0px;
+			width: 342px;
+			padding-right: 30px;
 		}
 		.popover-content {
 			padding: 0px;
-			hr {
-				margin-top: 0px;
-				margin-bottom: 5px;
+			.description {
+				margin: 10px;
+				width: 324px;
 			}
 		}
 		.event-img { 
-			width: 286px;
+			width: 342px;
 			height: 143px;
 			background-size: cover !important;
-			margin-bottom: 9px;
+			border-bottom: 1px solid #ebebeb;
 		}
 	}
 }
@@ -82,5 +91,23 @@ html, body {
 	hr {
 		margin-top: 0px;
 		margin-bottom: 15px;
+	}
+}
+
+.daterangepicker.dropdown-menu.opensright {
+	top: auto !important;
+	bottom: 220px !important;
+	left: 185px !important;
+	&:before {
+		top: auto;
+		border-top: 7px solid #CCC;
+		bottom: -7px;
+		border-bottom: none;
+	}
+	&:after {
+		top: auto;
+		border-top: 6px solid #FFF;
+		bottom: -6px;
+		border-bottom: none;
 	}
 }
