@@ -4,9 +4,10 @@ class EventsController < ApplicationController
 		feeds = Feed.find(:all, :conditions => ['date >= ?', Date.today])
 		@hash = buildMarkersFromFeeds(feeds)
 
-		@top_categories = Category.joins(:feed_has_categories)
+		@top_categories = Category.joins(:feed_has_categories).joins(:feeds)
 									.select('categories.id, categories.title, count(*) as "feed_count"')
-									.group(:category_id)
+									.where(['date >= ?', Date.today])
+									.group('feed_has_categories.category_id')
 									.order('feed_count desc')
 									.to_a[0..8]
 	end
