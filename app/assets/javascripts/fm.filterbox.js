@@ -9,6 +9,7 @@ $.widget('fm.fm_filterbox', {
         moreButton: null,
         searchButton: null,
         searchForm: null,
+        dateRangeInput: null
     },
     _create: function() {
         this._getUiEles();
@@ -18,6 +19,9 @@ $.widget('fm.fm_filterbox', {
             .on('show.bs.collapse', $.proxy(this._onShowCollapsable,this));
         this.eles.moreButton.on("click",$.proxy(this._onToggleMoreCategories,this));
         this.eles.searchForm.on("submit",$.proxy(this._onSearchFormSubmit,this));
+        this.element.find('.js-date-range-icon').on("click",$.proxy(function () { 
+            this.eles.dateRangeInput.focus(); 
+        },this)); 
     },
     _destroy: function() {
     },
@@ -28,7 +32,7 @@ $.widget('fm.fm_filterbox', {
         this.eles.moreButton = this.element.find(".js-more-btn");
         this.eles.searchButton = this.element.find(".js-search-btn");
         this.eles.searchForm = this.element.find(".js-search-form");
-
+        this.eles.dateRangeInput = this.element.find(".js-date-range");
     },
     _onHideCollapsable: function() {
         this.eles.collapseHandler
