@@ -13,10 +13,10 @@ $.widget('fm.fm_filterbox', {
     _create: function() {
         this._getUiEles();
 
-    	this.eles.panelCollapse
-    		.on('hide.bs.collapse', $.proxy(this._onHideCollapsable,this))
+        this.eles.panelCollapse
+            .on('hide.bs.collapse', $.proxy(this._onHideCollapsable,this))
             .on('show.bs.collapse', $.proxy(this._onShowCollapsable,this));
-    	this.eles.moreButton.on("click",$.proxy(this._onToggleMoreCategories,this));
+        this.eles.moreButton.on("click",$.proxy(this._onToggleMoreCategories,this));
         this.eles.searchForm.on("submit",$.proxy(this._onSearchFormSubmit,this));
     },
     _destroy: function() {
@@ -31,17 +31,17 @@ $.widget('fm.fm_filterbox', {
 
     },
     _onHideCollapsable: function() {
-    	this.eles.collapseHandler
-    		.addClass("glyphicon-chevron-right")
-    		.removeClass("glyphicon-chevron-down");
+        this.eles.collapseHandler
+            .addClass("glyphicon-chevron-right")
+            .removeClass("glyphicon-chevron-down");
     },
     _onShowCollapsable: function() {
-    	this.eles.collapseHandler
-    		.addClass("glyphicon-chevron-down")
-    		.removeClass("glyphicon-chevron-right");
+        this.eles.collapseHandler
+            .addClass("glyphicon-chevron-down")
+            .removeClass("glyphicon-chevron-right");
     },
     _onToggleMoreCategories: function() {
-    	this.eles.moreCategoriesDiv.slideToggle();
+        this.eles.moreCategoriesDiv.slideToggle();
 
         var buttonText = this.eles.moreButton.text();
         if(buttonText == "more"){
