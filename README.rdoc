@@ -1,4 +1,4 @@
-== README ==
+== README
 
 This is the source code of [sf.funma.pl](http://sf.funma.pl) project. The project is developed using Ruby/Rails, jQuery UI Widgets and Google Maps Api. Events are fetched from Sf.funcheap.com's RSS feeds.
 
