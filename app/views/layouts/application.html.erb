@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Funma.pl - Find an event to attend.</title>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+    <title>Funma.pl - Find an event to attend.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="<%= root_url %>">
+    <meta name="twitter:title" content="Funma.pl">
+    <meta name="twitter:domain" content="<%= root_url %>">
+    <meta name="twitter:site" content="funmapl">
+    <meta name="twitter:description" content="Find an event to attend.">
+    <meta property="twitter:image" content=""/>
+
+    <meta property="og:image" content=""/>
+    <meta property="og:title" content="Funma.pl"/>
+    <meta property="og:description" content="Find an event to attend."/>
+    <meta property="og:url" content="<%= root_url %>"/>
+    <meta property="og:site_name" content="Funma.pl"/>
+    <meta property="og:type" content="website"/>
+
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+    <%= yield %>
 </body>
 </html>
