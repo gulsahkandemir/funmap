@@ -17,3 +17,5 @@
 /config/database.yml
 /config/environments/development.rb
 /config/environments/production.rb
+
+app/assets/images/sf-funmapl.png
