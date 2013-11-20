@@ -46,6 +46,7 @@ $.widget('fm.fm_filterbox', {
     },
     _onToggleMoreCategories: function() {
         this.eles.moreCategoriesDiv.slideToggle();
+        this.element.toggleClass('expanded');
 
         var buttonText = this.eles.moreButton.text();
         if(buttonText == "more"){
@@ -53,6 +54,7 @@ $.widget('fm.fm_filterbox', {
         } else {
             this.eles.moreButton.text("more").blur();
         }
+
     },
     _onSearchFormSubmit: function(event) {
         event.preventDefault();

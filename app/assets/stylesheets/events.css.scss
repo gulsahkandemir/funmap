@@ -62,6 +62,11 @@ html, body {
 	bottom: 0px; 
 	left: 65px; 
 	width: 420px;
+	&.expanded {
+		~ .daterangepicker.dropdown-menu.opensright {
+			bottom: 315px !important;
+		}
+	}
 	.filter-title {
 		margin-left: 5px;
 	}
