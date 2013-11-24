@@ -33,8 +33,8 @@ gem 'nokogiri'
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
+
 gem 'momentjs-rails'
-gem 'bootstrap-daterangepicker-rails', '~> 0.0.7'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

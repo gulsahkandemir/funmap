@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 271f73becbb2aea9c1b771e09419b9bc0287fe55
+  revision: 1e43948db7188e670b637ca4fd2076f3a0fa058f
   specs:
     anjlab-bootstrap-rails (3.0.2.0)
       railties (>= 3.0)
@@ -35,8 +35,6 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.1)
     atomic (1.1.14)
-    bootstrap-daterangepicker-rails (0.0.7)
-      railties (>= 3.1)
     builder (3.1.4)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -100,7 +98,7 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
-    sprockets (2.10.0)
+    sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -131,7 +129,6 @@ PLATFORMS
 
 DEPENDENCIES
   anjlab-bootstrap-rails!
-  bootstrap-daterangepicker-rails (~> 0.0.7)
   coffee-rails (~> 4.0.0)
   execjs
   jbuilder (~> 1.2)
