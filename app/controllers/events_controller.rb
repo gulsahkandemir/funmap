@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 		@top_categories = Category.joins(:feed_has_categories).joins(:feeds)
 									.select('categories.id, categories.title, count(*) as "feed_count"')
 									.where(['date >= ?', Date.today])
-									.where(['categories.id not in (?)', Category.excluded_category_ids])
+									.where(['categories.id not in (?)', Category::Excluded_Categories])
 									.group('feed_has_categories.category_id')
 									.order('feed_count desc')
 									.to_a[0..8]

@@ -77,10 +77,10 @@ html, body {
 		text-decoration: none;
 	}
 	.checkbox-inline {
-		height: 41px;
+		vertical-align: top;
 		width: 100px;
 		margin-left: 5px;
-		&:nth-child(3n+2),
+		&:nth-of-type(3n+1),
 		&:first-child {
 			margin-left: 0px;
 		}
