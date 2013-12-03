@@ -5,6 +5,7 @@ root :to => 'events#index'
 namespace :api do
   namespace :subscriptions do
     resources :sf_fun_cheap, :defaults => { :format => 'json' }
+    resources :sf_eventbrite, :defaults => { :format => 'json' }
   end
 end 
  
