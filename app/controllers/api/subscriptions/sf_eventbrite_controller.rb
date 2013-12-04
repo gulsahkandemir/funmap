@@ -12,4 +12,8 @@ class Api::Subscriptions::SfEventbriteController < ApplicationController
             format.xml { render xml: params }
         end 
     end
+    
+    def index
+        render :text => params["hub.challenge"]
+    end
 end
