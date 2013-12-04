@@ -9,7 +9,7 @@ class Api::Subscriptions::SfEventbriteController < ApplicationController
 
         respond_to do |format|
             format.html
-            format.json { render json: params}
+            format.xml { render xml: params }
         end 
     end
 end
