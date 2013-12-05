@@ -1,15 +1,14 @@
-class Api::Subscriptions::SfEventbriteController < ApplicationController
+class Api::Subscriptions::SfFunCheapPshhController < ApplicationController
     skip_before_action :verify_authenticity_token
     def create
         request.body.rewind
         request_body_json = JSON.parse(request.body.read);
 
-        logger.info "=========START=EVENTBRITE=SUPERFEEDR========"
+        logger.info "=========START=FUN=PSHH========"
         logger.info request.env
-        logger.info "==============BODY=============="
+        logger.info "=========BODY=PSHH======="
         logger.info request_body_json
-        logger.info "==========END=EVENTBRITE=SUPERFEEDR========="
-        
+        logger.info "==========END=FUN=PSHH========="
 
         respond_to do |format|
             format.html
@@ -20,4 +19,5 @@ class Api::Subscriptions::SfEventbriteController < ApplicationController
     def index
         render :text => params["hub.challenge"]
     end
+
 end
