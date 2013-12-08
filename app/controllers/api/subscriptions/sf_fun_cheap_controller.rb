@@ -2,9 +2,6 @@ require 'open-uri'
 class Api::Subscriptions::SfFunCheapController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	def create
-		logger.info "=========START=FUNCHEAP=SUPERFEEDR========"
-		logger.info request.env
-		logger.info "==========END=FUNCHEAP=SUPERFEEDR=========="
 
 		items = params[:items]
 		begin
@@ -63,7 +60,8 @@ class Api::Subscriptions::SfFunCheapController < ApplicationController
 							:address => corrected_address,
 							:date => date,
 							:actor => actor,
-							:img_src => img_src
+							:img_src => img_src,
+							:source => "sf_fun_cheap"
 							)
 						feed.save
 					end

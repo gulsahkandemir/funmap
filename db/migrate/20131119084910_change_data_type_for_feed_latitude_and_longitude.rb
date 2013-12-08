@@ -1,5 +1,5 @@
 class ChangeDataTypeForFeedLatitudeAndLongitude < ActiveRecord::Migration
- def self.up
+  def self.up
     change_table :feeds do |t|
       t.change :latitude, :decimal, precision: 15, scale: 12
       t.change :longitude, :decimal, precision: 15, scale: 12

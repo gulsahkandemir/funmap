@@ -36,6 +36,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 
 gem 'momentjs-rails'
 
+gem 'eventbrite-client'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
